@@ -37,7 +37,7 @@ function AppContent() {
               </button>
             </div>
           )}
-        </div>
+      </div>
       </header>
       <main>
         {authMode !== null && (
@@ -48,7 +48,7 @@ function AppContent() {
                 onClick={() => setAuthMode(null)}
               >
                 ×
-              </button>
+        </button>
               {authMode === 'login' ? (
                 <LoginForm 
                   onSwitchToRegister={() => setAuthMode('register')}
@@ -65,7 +65,7 @@ function AppContent() {
         )}
         <CalculationTree />
       </main>
-    </div>
+      </div>
   );
 }
 

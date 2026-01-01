@@ -11,7 +11,7 @@ interface OperationNodeProps {
 export function OperationNode({ operation, level }: OperationNodeProps) {
   const [childOperations, setChildOperations] = useState<Operation[]>([]);
   const [showForm, setShowForm] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [_, setLoading] = useState(false)
 
   useEffect(() => {
     loadChildOperations();
