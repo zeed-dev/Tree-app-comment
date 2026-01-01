@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int              @id @default(autoincrement())
+  username        String           @unique
+  password        String
+  createdAt       DateTime         @default(now()) @map("created_at")
+  operations      Operation[]
+  startingNumbers StartingNumber[]
+
+  @@map("users")
+}
+
+model StartingNumber {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  value     Float
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("starting_numbers")
+}
+
+model Operation {
+  id            Int           @id @default(autoincrement())
+  parentId      Int           @map("parent_id")
+  parentType    ParentType    @map("parent_type")
+  userId        Int           @map("user_id")
+  operationType OperationType @map("operation_type")
+  rightOperand  Float         @map("right_operand")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([parentId, parentType])
+  @@map("operations")
+}
+
+enum ParentType {
+  STARTING_NUMBER
+  OPERATION
+}
+
+enum OperationType {
+  ADD
+  SUBTRACT
+  MULTIPLY
+  DIVIDE
+}
