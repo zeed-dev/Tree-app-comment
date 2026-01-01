@@ -113,24 +113,24 @@ calculation-tree-app/
 
 ## Deployment
 
-Lihat file **[DEPLOYMENT.md](./DEPLOYMENT.md)** untuk panduan deployment lengkap.
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for the complete deployment guide.
 
 ### Quick Deploy
 
 **Backend (Railway):**
-1. Push code ke GitHub
-2. Create new project di Railway
+1. Push code to GitHub
+2. Create new project on Railway
 3. Add PostgreSQL database
 4. Set environment variables: `DATABASE_URL`, `JWT_SECRET`
 5. Deploy backend service
 6. Run migrations: `npx prisma migrate deploy`
 
 **Frontend (Vercel):**
-1. Import project dari GitHub (set root directory ke `frontend`)
+1. Import project from GitHub (set root directory to `frontend`)
 2. Set environment variable: `VITE_API_URL=https://your-backend.railway.app/api`
 3. Deploy
 
-Lihat [DEPLOYMENT.md](./DEPLOYMENT.md) untuk instruksi detail dan troubleshooting.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions and troubleshooting.
 
 ## API Endpoints
 
