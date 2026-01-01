@@ -54,4 +54,5 @@ This backend follows Hexagonal Architecture (Ports & Adapters):
 - **Adapters** (`src/adapters/`): Implementations
   - `primary/`: HTTP controllers and routes
   - `secondary/`: Database repositories (Prisma)
+  
 
